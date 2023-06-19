@@ -134,3 +134,9 @@ cython_debug/
 
 # PyCharm
 .idea/
+
+# sqlite
+*.db
+
+# test
+tests/!__init__.py
