@@ -22,6 +22,7 @@ def upgrade() -> None:
     username = os.getenv("USERNAME", "用户名")
     email = os.getenv("EMAIL", "example@123.com")
     password = os.getenv("PWD", "123456")
+    print(email, password)
 
     if not re.search(
         r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,'

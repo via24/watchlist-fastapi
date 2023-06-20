@@ -12,3 +12,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+print("1", settings.database_url, settings.secret_key)
