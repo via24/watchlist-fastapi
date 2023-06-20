@@ -1,11 +1,12 @@
-import os
-
-from pydantic import BaseSettings
+from pydantic import BaseSettings, EmailStr
 
 
 class Settings(BaseSettings):
-    database_url: str = os.getenv("DB_URL")
-    secret_key: str = os.getenv("SECRET_KEY")
+    database_url: str
+    secret_key: str
+    username: str = "用户名"
+    email: EmailStr = "example@123.com"
+    password: str = "123456"
 
     class Config:
         env_file = ".env"
