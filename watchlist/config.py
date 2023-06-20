@@ -7,6 +7,8 @@ class Settings(BaseSettings):
     username: str = "用户名"
     email: EmailStr = "example@123.com"
     password: str = "123456"
+    # fastapi docs
+    envir: str = "dev"  # {dev, prod}
 
     class Config:
         env_file = ".env"

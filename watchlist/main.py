@@ -6,11 +6,22 @@ from sqlalchemy import update
 from sqlalchemy.orm import Session
 from starlette.responses import JSONResponse, Response
 
+from .config import settings as conf
 from .dependencies import get_db, templates, manager
 from .models import Movie, User
 from .routers import movie, auth
 
-app = FastAPI()
+if conf.envir == "prod":
+    app = FastAPI(
+        title="WatchList",
+        docs_url=None,
+        redoc_url=None,
+        openapi_url=None,
+        swagger_ui_oauth2_redirect_url=None,
+    )
+else:
+    app = FastAPI(title="WatchList")
+
 manager.useRequest(app)
 app.include_router(auth.router)
 app.include_router(movie.router)
