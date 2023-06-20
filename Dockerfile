@@ -12,6 +12,10 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY . /code
 
+ENV EMAIL=$EMAIL
+ENV SECRET_KEY=$SECRET_KEY
+ENV DATABASE_URL=$DATABASE_URL
+
 RUN alembic upgrade head
 
 EXPOSE 80/tcp
