@@ -14,4 +14,7 @@ COPY . /code
 
 RUN alembic upgrade head
 
+EXPOSE 80/tcp
+EXPOSE 80/udp
+
 CMD ["uvicorn", "watchlist.main:app", "--host", "0.0.0.0", "--port", "80"]
