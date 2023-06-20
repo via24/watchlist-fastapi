@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Dict
 
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
@@ -18,7 +18,7 @@ manager = LoginManager(
 )
 
 
-def inject_user(request: Request) -> dict[str, Any]:
+def inject_user(request: Request) -> Dict[str, Any]:
     msg = request.state.msg if hasattr(request.state, "msg") else None
     # print(">>>>>>>>>>>>>>>>", msg)
     with SessionLocal() as ses:

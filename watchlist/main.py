@@ -1,4 +1,4 @@
-from typing import Callable, Union
+from typing import Callable, Union, Dict
 
 from fastapi import FastAPI, Request, Depends, Form
 from fastapi.staticfiles import StaticFiles
@@ -17,7 +17,7 @@ app.include_router(movie.router)
 
 # 静态文件
 app.mount("/static", StaticFiles(directory="static"), name="static")
-app_session: dict[str, str] = {}
+app_session: Dict[str, str] = {}
 
 
 @app.middleware("http")
