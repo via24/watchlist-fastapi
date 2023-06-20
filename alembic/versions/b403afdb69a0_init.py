@@ -5,6 +5,7 @@ Revises:
 Create Date: 2023-06-19 13:22:36.392704
 
 """
+import os
 import re
 import bcrypt
 from alembic import op
@@ -18,16 +19,9 @@ depends_on = None
 
 
 def upgrade() -> None:
-    username = input("请输入管理员用户名(默认值：佚名): ")
-    email = input("请输入管理员邮箱(默认值：example@123.com): ")
-    password = input("请输入管理员密码(默认值：123456): ")
-
-    if not username:
-        username = "用户名"
-    if not email:
-        email = "example@123.com"
-    if not password:
-        password = "123456"
+    username = os.getenv("USERNAME", "用户名")
+    email = os.getenv("EMAIL", "example@123.com")
+    password = os.getenv("PWD", "123456")
 
     if not re.search(
         r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,'

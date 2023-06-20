@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, Union
 
 from fastapi import FastAPI, Request, Depends, Form
 from fastapi.staticfiles import StaticFiles
@@ -23,7 +23,7 @@ app_session: dict[str, str] = {}
 @app.middleware("http")
 async def cookie_middleware(
     request: Request, call_next: Callable
-) -> JSONResponse | Response:
+) -> Union[JSONResponse, Response]:
     in_token = request.cookies.get("access-token")
     if in_token:
         if in_token not in app_session.values():

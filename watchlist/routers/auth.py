@@ -1,3 +1,5 @@
+from typing import Union
+
 import bcrypt
 from fastapi import APIRouter, Request, Response, Depends
 from fastapi.responses import RedirectResponse
@@ -12,7 +14,7 @@ router = APIRouter(tags=["auth"])
 
 
 @manager.user_loader()
-def query_user(user_email: str) -> User | None:
+def query_user(user_email: str) -> Union[User, None]:
     with SessionLocal() as session:
         u = session.execute(
             select(User).where(User.email == user_email)

@@ -1,9 +1,11 @@
+import os
+
 from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
-    database_url: str
-    secret_key: str
+    database_url: str = os.getenv("DB_URL")
+    secret_key: str = os.getenv("SECRET_KEY")
 
     class Config:
         env_file = ".env"
