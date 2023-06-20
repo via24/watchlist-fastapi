@@ -4,7 +4,6 @@
 
 ### Poetry
 ```shell
-# poetry
 poetry shell
 poetry install
 ```
@@ -13,7 +12,7 @@ poetry install
 ```shell
 python -m venv env
 
-# PowerShell (cmd: env\Scripts\activate.bat)
+# Windows PowerShell (cmd: env\Scripts\activate.bat)
 env\Scripts\Activate.ps1
 (env) pip install -r requirements.txt
 ```
