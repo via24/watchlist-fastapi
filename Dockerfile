@@ -1,6 +1,6 @@
 # for zeabur
 
-FROM python:3.9.17-alpine3.18
+FROM python:3.11.4-alpine
 
 LABEL maintainer="Ray"
 
